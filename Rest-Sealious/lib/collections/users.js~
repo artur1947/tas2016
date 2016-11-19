@@ -1,0 +1,30 @@
+const Sealious = require("sealious");
+
+module.exports = function(app){
+	var Users = app.ChipManager.get_chip("collection", "users");
+
+	Users.add_fields([
+		{name: "role", type: "role", required: true},
+	]);
+
+	Users.add_fields([
+		{
+			name: "assigned_shelter", 
+			type: "per-role", 
+			params: {
+				allowed_roles: ["admin"],
+				target_field_type: "single_reference",
+				target_params: {
+					collection: "shelters",
+				},
+			}
+		},
+	]);
+
+	Users.set_access_strategy({
+		create: "public",
+		retrieve: ["or", ["themselves", ["roles", ["admin"]]]],
+		update: ["or", ["themselves" , ["roles", ["admin"]]]],
+		delete: "noone",
+	});
+};
