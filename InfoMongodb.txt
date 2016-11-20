@@ -1,0 +1,53 @@
+dokumentacja mongo:
+https://docs.mongodb.com/manual/core/backups/
+
+
+mongo ds050559.mlab.com:50559/tas2016 -u <dbuser> -p <dbpassword>
+users:
+Malisz - login: lisperson / has³o: lispislife123
+Radwan - login: radwan / has³o: radwan123
+
+Przydatne info:
+Import / Export Helper
+
+MongoDB provides two mechanisms for importing and exporting data. One way is via the mongoimport and mongoexport utilities. These allow you to import and export JSON and CSV representations of your data. The other way is with mongorestore and mongodump utilities which deal with binary dumps.
+
+In this tab we provide pre-filled strings for the commands that we find most useful.
+
+Copy and paste from below to import or export from this database. For a full list of options that can be used with these commands, please see MongoDB's documentation on this subject.
+
+Binary
+
+Import database
+mongorestore -h ds050559.mlab.com:50559 -d tas2016 -u <user> -p <password> <input db directory>
+Export database
+mongodump -h ds050559.mlab.com:50559 -d tas2016 -u <user> -p <password> -o <output directory>
+Import collection
+mongorestore -h ds050559.mlab.com:50559 -d tas2016 -u <user> -p <password> <input .bson file>
+Export collection
+mongodump -h ds050559.mlab.com:50559 -d tas2016 -c <collection> -u <user> -p <password> -o <output directory>
+JSON
+
+Import collection
+mongoimport -h ds050559.mlab.com:50559 -d tas2016 -c <collection> -u <user> -p <password> --file <input file>
+Export collection
+mongoexport -h ds050559.mlab.com:50559 -d tas2016 -c <collection> -u <user> -p <password> -o <output file>
+CSV
+
+Import collection
+mongoimport -h ds050559.mlab.com:50559 -d tas2016 -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
+Export collection
+mongoexport -h ds050559.mlab.com:50559 -d tas2016 -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
+
+
+komendy:
+[Bash on Ubuntu]
+mongod --dbpath /mnt/c/Users/artur/Documents/GitHub/tas2016/RESTful_API_NodeJS/RESTful_API_NodeJS/mongo/data/
+
+//show collections
+use bookstore
+show collections
+db.genre.insert({name:'Horror'})
+db.books.insert({title:'Hobbit..',genre:'Fantasy'})
+db.books.find().pretty()
+db.genre.remove({name:'Horror'})
