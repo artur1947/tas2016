@@ -22,6 +22,7 @@ import Language.Haskell.TH
 --             "Catalog",
 --             "Login"]
 
+data Page = Home | About | Catalog | Login
 
 mkUrls :: Page -> [(Text, Text)] -> Text
 mkUrls Home   _ = "home.html"
@@ -37,14 +38,18 @@ webPage title content = [hamlet|
       <title>#{toUpper title}
     <body>
       <h1>#{title}
-      <div>
+      <div class=title>
       <hr>
-      <div>
+      <div class=linkbar>
         <ul>
           <a href=@{Home}> Strona Główna
           <a href=@{Catalog}> Przeglądaj Katalog
           <a href=@{About}> Info
           <a href=@{Login}> Login
       <hr>
-      <div>#{content}
+      <div class=search>
+      <hr>
+      <div class=content>#{content}
+      <hr>
+      <div class=stopka> stopka i kopyrajty
  |]

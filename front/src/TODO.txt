@@ -1,0 +1,12 @@
+Login/Konto Koszyk Wypożyczenia
+Księgarnia
+        Katalog(Do kupienia)
+                   ListaKategorii
+Biblioteka
+        Katalog(Do wypożyczenia)
+                   ListaKategorii
+
+Wyszukiwanie (Nazwa, Autor, Kategorii, Do wypożyczenia/Kupienia)
+
+
+Opcjonalnie stopka na dole strony
