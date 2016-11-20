@@ -3,4 +3,4 @@ core:
 www-server:
   port: 1337
 datastore_mongo:
-  db_name: biblioteka2
+  db_name: biblioteka
