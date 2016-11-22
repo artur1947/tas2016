@@ -9,6 +9,7 @@
   "author": "Mateusz Malisz, Artur Pereć, Piotr Radwan, Patrycja Szymańska",
   "license": "ISC",
   "dependencies": {
+    "request": "^2.79.0",
     "sealious": "sealcode/sealious#alpha",
     "sealious-datastore-mongo": "sealcode/sealious-datastore-mongo#alpha",
     "sealious-www-server": "sealcode/sealious-www-server#alpha"
