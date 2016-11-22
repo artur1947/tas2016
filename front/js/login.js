@@ -9,8 +9,7 @@ function zaloguj() {
 function register() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
-    var rol = document.getElementById("role").value;
-    post("http://localhost:1337/api/v1/users",{username:log, password:pas, role:rol},"post");
+    post("http://localhost:1337/api/v1/users",{username:log, password:pas, role:"client"});
     window.location ="login.html";
 }
 function post(path, params, method) {
