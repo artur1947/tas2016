@@ -7,7 +7,7 @@ all: run-server run-mongo-base
 run-server: deps
 	cd $(REST_DIR); node . 2>&1 | tee log.txt
 
-run-mongo-base: mongo
+run-mongo-base:
 	mkdir -p mongo
 	mongod --dbpath mongo/ &
 
