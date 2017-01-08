@@ -11,9 +11,9 @@ App.createCollection({
     fields: [
         {name: "title", type: "text", required: true},
         {name: "author", type: "text", required: true},
-        {name: "description", type: "html", required: true},
-        {name: "table_of_contents", type: "html", required: true},
-        {name: "cover", type: "file", required: true},
+        {name: "description", type: "html", required: false},
+        {name: "table_of_contents", type: "html", required: false},
+        {name: "cover", type: "file", required: false},
         {name: "price", type: "float", required: true},
         {name: "is_available", type: "boolean", required: true},
         {name: "ebook", type: "file"},
@@ -22,7 +22,7 @@ App.createCollection({
     access_strategy: {
         default: ["roles", ["admin"]],
         retrieve: "public",
-        delete: "noone",
+        delete: "noone"
     }
 });
 
@@ -36,7 +36,7 @@ App.createCollection({
     access_strategy: {
         create: "logged_in",
         default: "owner"
-    },
+    }
 });
 
 App.start().then(function(){
