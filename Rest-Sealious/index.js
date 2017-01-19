@@ -5,6 +5,7 @@ var App = new Sealious.App();
 require("./lib/field-types/role.js")(App);
 require("./lib/access-strategy/roles.js")(App);
 require("./lib/collections/users.js")(App);
+require("./routes.js")(App);
 
 App.createCollection({
     name: "books",
