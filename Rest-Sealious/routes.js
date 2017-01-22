@@ -6,11 +6,11 @@ module.exports = function(App){
         path: "/{path*}",
         handler: function(request, reply){
             if (request.url.pathname=="/") {
-	        reply.file("../front2/public/index.html");
-            } else if (request.url.pathname=="/admin" || request.url.pathname=="/admin/") {
-	        reply.file("./public/admin/index.html");
+	        reply.file("./front/public/index.html");
+			} else if (request.url.pathname=="/admin" || request.url.pathname=="/admin/") {
+	        reply.file("./front/public/admin/index.html");
             } else {
-	        reply.file("./public/"+request.url.pathname);
+	        reply.file("./front/public/"+request.url.pathname);
             }
         }
     });
