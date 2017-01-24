@@ -2,7 +2,7 @@ function zaloguj() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
     post("http://localhost:1337/api/v1/sessions",{username:log, password:pas});
-    window.location ="home.html";
+    window.location ="index.html";
     document.cookie = "username="+log+";";
 }
 

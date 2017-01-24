@@ -12,6 +12,7 @@ App.createCollection({
     fields: [
         {name: "title", type: "text", required: true},
         {name: "author", type: "text", required: true},
+		{name: "genre", type: "text", required: true},
         {name: "description", type: "html", required: false},
         {name: "table_of_contents", type: "html", required: false},
         {name: "cover", type: "file", required: false},
@@ -21,7 +22,7 @@ App.createCollection({
         {name: "audiobook", type: "file"},
     ],
     access_strategy: {
-        default: ["roles", ["admin"]],
+        default: ["roles", ["public"]],
         retrieve: "public",
         delete: "noone"
     }
