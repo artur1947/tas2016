@@ -1,5 +1,3 @@
-jquery = require("./jquery.js");
-
 function zaloguj() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
@@ -11,9 +9,29 @@ function zaloguj() {
 function register() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
-    var a = post("http://localhost:1337/api/v1/users",
-                 {username:log, password:pas, role:"client"});
-    console.log(a);
+    // post("http://localhost:1337/api/v1/users",
+    // {username:log, password:pas, role:"client"});
+    $.post("http://localhost:1337/api/v1/users", {username:log, password:pas, role:"client"},
+           function(data, responseCode){
+               $("div").remove(".response");
+               var iDiv = document.createElement('div');
+               iDiv.id = 'response';
+               iDiv.className = 'response';
+               var text = document.createTextNode("Successfully created user " + log);
+               iDiv.appendChild(text);
+               document.body.appendChild(iDiv);
+               console.log(data);
+               console.log(responseCode);
+           })
+        .fail(function (idklol){
+            $("div").remove(".response");
+            var iDiv = document.createElement('div');
+            iDiv.id = 'response';
+            iDiv.className = 'response';
+            var text = document.createTextNode("Error " + idklol);
+            iDiv.appendChild(text);
+            document.body.appendChild(iDiv);
+        })
 }
 
 function post(path, params, method) {
