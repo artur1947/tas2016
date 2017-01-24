@@ -16,15 +16,16 @@
 <a class="navbar-brand" href="index.html">Strona Główna</a>
 </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="catalog.html">Księgarnia<span class="caret"></a>
-<ul class="dropdown-menu"><li><a href="#">Fantastyka</a>
+<ul class="dropdown-menu">
+<li><a href="fantasy">Fantastyka</a>
 </li>
-<li><a href="#">Kryminał</a>
+<li><a href="criminal">Kryminał</a>
 </li>
-<li><a href="#">Sensacja</a>
+<li><a href="sensation">Sensacja</a>
 </li>
-<li><a href="#">Horror</a>
+<li><a href="horror">Horror</a>
 </li>
-<li><a href="#">Biografie</a>
+<li><a href="biography">Biografie</a>
 </li>
 <li><a href="#">Poradniki</a>
 </li>
@@ -51,7 +52,12 @@
 <a class="list-group-item" href="#">NOWOŚCI</a>
 </div>
 </div>
-<div class="col-md-9"><script src="js/login.js"></script><form><div class="form-group"><label for="login" class="control-label">Login:</label><input type="text" class="form-control" id="username"></input><div class="form-group"><label for="password" class="control-label">Password:</label><input class="form-control" id="password" type="password"></input><button type="button" class="btn btn-default" onclick="zaloguj()">Zaloguj</button></form><br><a href="register.html">Zarejestruj</a></div>
+<div class="col-md-9">
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'>
+var text = document.createTextNode("Error ");
+document.body.appendChild(text);
+ $.getJSON("http://localhost:1337/api/v1/collections/books"); </scipt>
+</div>
 </div>
 </div>
 <div class="container"><hr>
@@ -62,8 +68,9 @@
 </footer>
 </div>
 <script src="js/jquery.js"></script>
-<script src="js/login.js"></script>
 <script src="js/mainscript.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/getbooks.js"></script>
 </body>
 </html>
+

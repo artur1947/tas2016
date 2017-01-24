@@ -22,9 +22,9 @@ App.createCollection({
         {name: "audiobook", type: "file"},
     ],
     access_strategy: {
-        default: ["roles", ["public"]],
+        default: ["roles", ["admin"]],
         retrieve: "public",
-        delete: "noone"
+        delete: ["roles", ["admin"]]
     }
 });
 
