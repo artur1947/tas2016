@@ -1,17 +1,21 @@
+jquery = require("./jquery.js");
+
 function zaloguj() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
     post("http://localhost:1337/api/v1/sessions",{username:log, password:pas});
-    window.location ="home.html";
+    window.location ="index.html";
     document.cookie = "username="+log+";";
 }
 
 function register() {
     var log = document.getElementById("username").value;
     var pas = document.getElementById("password").value;
-    post("http://localhost:1337/api/v1/users",{username:log, password:pas, role:"client"});
-    window.location ="login.html";
+    var a = post("http://localhost:1337/api/v1/users",
+                 {username:log, password:pas, role:"client"});
+    console.log(a);
 }
+
 function post(path, params, method) {
     method = method || "post"; // Set method to post by default if not specified.
 
@@ -31,7 +35,7 @@ function post(path, params, method) {
             form.appendChild(hiddenField);
         }
     }
-
     document.body.appendChild(form);
     form.submit();
+
 }
