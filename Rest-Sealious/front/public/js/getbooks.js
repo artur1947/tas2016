@@ -1,39 +1,20 @@
-jquery = require("./jquery.js");
-
-function zaloguj() {
-    get("http://localhost:1337/api/v1/collections/books",{username:log, password:pas});
-    window.location ="collections.html";
-    document.cookie = "username="+log+";";
-}
-
-function register() {
-    var log = document.getElementById("username").value;
-    var pas = document.getElementById("password").value;
-    var a = post("http://localhost:1337/api/v1/users",
-                 {username:log, password:pas, role:"client"});
-    console.log(a);
-}
-
-function post(path, params, method) {
-    method = method || "post"; // Set method to post by default if not specified.
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-
-            form.appendChild(hiddenField);
-        }
-    }
-    document.body.appendChild(form);
-    form.submit();
-
+function getbooks() {
+    $.get("http://localhost:1337/api/v1/collections/books"),
+           function(data, responseCode){
+               window.location.href ="catalog.html";
+               document.cookie = "username="+log+";";
+               var text = document.createTextNode("Books shown, " + log);
+               iDiv.appendChild(text);
+               document.body.appendChild(iDiv);
+           })
+        .fail(function (idklol){
+            $("#response").remove();
+            var iDiv = document.createElement('p');
+            iDiv.id = 'response';
+            iDiv.className = 'bg-danger';
+            console.log(idklol)
+            var text = document.createTextNode("Error: No books to show." );
+            iDiv.appendChild(text);
+            document.body.appendChild(iDiv);
+        })
 }
