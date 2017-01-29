@@ -1,5 +1,5 @@
 function getbooks() {
-    $.get("http://localhost:1337/api/v1/collections/books"),
+    $.get("http://localhost:1337/api/v1/collections/books",
            function(data, responseCode){
                window.location.href ="catalog.html";
                document.cookie = "username="+log+";";
