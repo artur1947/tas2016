@@ -39,16 +39,20 @@ function register() {
                document.body.appendChild(iDiv);
                console.log(data);
                console.log(responseCode);
+               $("#username").val('');
+               $("#password").val('');
            })
         .fail(function (idklol){
             $("#response").remove();
             var iDiv = document.createElement('p');
             iDiv.id = 'response';
             iDiv.className = 'bg-danger';
-            console.log(idklol)
+            console.log(idklol);
             var text = document.createTextNode("Error: username already taken" );
             iDiv.appendChild(text);
             document.body.appendChild(iDiv);
+            $("#username").val('');
+            $("#password").val('');
         })
 }
 
