@@ -12,16 +12,15 @@ function zaloguj() {
                iDiv.appendChild(text);
                document.body.appendChild(iDiv);
            })
-        .fail(function (idklol){
+        .fail(function (arg){
             $("#response").remove();
             var iDiv = document.createElement('p');
             iDiv.id = 'response';
             iDiv.className = 'bg-danger';
-            console.log(idklol)
             var text = document.createTextNode("Error: wrong credentials." );
             iDiv.appendChild(text);
             document.body.appendChild(iDiv);
-        })
+        });
 }
 
 function register() {
@@ -41,12 +40,11 @@ function register() {
                $("#username").val('');
                $("#password").val('');
            })
-        .fail(function (idklol){
+        .fail(function (arg){
             $("#response").remove();
             var iDiv = document.createElement('p');
             iDiv.id = 'response';
             iDiv.className = 'bg-danger';
-            console.log(idklol);
             var text = document.createTextNode("Error: username already taken" );
             iDiv.appendChild(text);
             document.body.appendChild(iDiv);
