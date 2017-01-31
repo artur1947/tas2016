@@ -30,7 +30,7 @@ function add_book() {
         return;
     }
     else {
-        price = parseFloat(price);
+        price = parseFloat(price).toFixed(2);
     }
     if(available == "T") {
         available = "True";
