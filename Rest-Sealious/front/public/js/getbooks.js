@@ -2,8 +2,7 @@ function getbooks() {
     $.get("http://localhost:1337/api/v1/collections/books",
            function(data, responseCode){
                var text = document.createTextNode("Books shown, ");
-               iDiv.appendChild(text);
-               document.body.appendChild(iDiv);
+			   console.log(data);
            })
         .fail(function (idklol){
             $("#response").remove();
