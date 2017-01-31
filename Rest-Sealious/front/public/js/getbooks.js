@@ -1,11 +1,8 @@
 function getbooks() {
     $.get("http://localhost:1337/api/v1/collections/books",
            function(data, responseCode){
-               window.location.href ="catalog.html";
-               document.cookie = "username="+log+";";
-               var text = document.createTextNode("Books shown, " + log);
-               iDiv.appendChild(text);
-               document.body.appendChild(iDiv);
+               var text = document.createTextNode("Books shown, ");
+			   console.log(data);
            })
         .fail(function (idklol){
             $("#response").remove();
