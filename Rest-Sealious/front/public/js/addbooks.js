@@ -42,7 +42,7 @@ function add_book() {
         "price" : price,
         "genre" : genre,
         "description" : description,
-        "table" : table,
+        "table_of_contents" : table,
         "is_available" : available,
         "author" : author,
         "title" : title,

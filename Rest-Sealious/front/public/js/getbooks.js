@@ -39,6 +39,9 @@ function printBook(book) {
     //Add the description
     var desc = document.createElement('p');
     desc.innerText = book['description'];
+    if(desc.innerText == "undefined") {
+        desc.innerText = "<brak opisu>";
+    }
     desc.appendChild(document.createElement('br'));
     desc.innerText += "Author: ";
     desc.appendChild(document.createElement('br'));
