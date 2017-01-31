@@ -12,7 +12,7 @@ App.createCollection({
     fields: [
         {name: "title", type: "text", required: true},
         {name: "author", type: "text", required: true},
-		{name: "genre", type: "text", required: false},
+        {name: "genre", type: "text", required: false},
         {name: "description", type: "text", reuired: false},
         {name: "table_of_contents", type: "html", required: false},
         {name: "cover", type: "file", required: false},
